@@ -5,7 +5,10 @@ if not status then
 end
 
 notify.setup({
-  stages = "static",
-  timeout = 5000,
+  stages = "fade_in_slide_out",
+  background_colour = "#334422",
+  timeout = 3000,
+  render = "minimal",
+  max_width = 10
 })
 vim.notify = notify

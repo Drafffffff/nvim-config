@@ -65,7 +65,7 @@ cmp.setup({
   sources = cmp.config.sources({
     {
       name = "luasnip",
-      group_index = 1,
+      group_index = 2,
     },
     {
       name = "nvim_lsp",
@@ -73,7 +73,7 @@ cmp.setup({
     },
     {
       name = "nvim_lsp_signature_help",
-      group_index = 1,
+      group_index = 2,
     },
     {
       name = "buffer",

@@ -25,3 +25,6 @@ require("dap.setup")
 -- utils
 -- 复制到windows剪贴板
 -- require('utils.fix-yank')
+
+-- vim.wo.number = true
+-- vim.wo.relativenumber = true

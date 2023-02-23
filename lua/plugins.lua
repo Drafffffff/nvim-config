@@ -89,12 +89,12 @@ packer.startup({
     })
 
     -- dashboard-nvim
-    use({
-      "glepnir/dashboard-nvim",
-      config = function()
-        require("plugin-config.dashboard")
-      end,
-    })
+    -- use({
+    --   "glepnir/dashboard-nvim",
+    --   config = function()
+    --     require("plugin-config.dashboard")
+    --   end,
+    -- })
 
     -- project
     use({
@@ -212,6 +212,74 @@ packer.startup({
         require("plugin-config.zen-mode")
       end,
     })
+
+    -- animation
+    -- use({
+    --   "anuvyklack/animation.nvim",
+    --   requires = "anuvyklack/middleclass",
+    --   config = function()
+    --     require("plugin-config.animation")
+    --   end,
+    -- })
+
+    -- leap
+    use({
+      "ggandor/leap.nvim",
+      config = function()
+        require("plugin-config.leap")
+      end,
+    })
+
+    use({
+      "ggandor/flit.nvim",
+      config = function()
+        require("plugin-config.flit")
+      end,
+    })
+
+    --minimap
+    -- use({
+    --   "echasnovski/mini.map",
+    --   config = function()
+    --     require("plugin-config.minimap")
+    --   end,
+    -- })
+    --
+    --
+    use({
+      "wfxr/minimap.vim",
+      config = function()
+        require("plugin-config.minimap")
+      end,
+    })
+
+    use({
+      "petertriho/nvim-scrollbar",
+      config = function()
+        require("plugin-config.scrollbar")
+      end,
+    })
+
+    use({
+      "ziontee113/color-picker.nvim",
+      config = function()
+        require("plugin-config.color-picker")
+      end,
+    })
+    --colorlizer
+    use({
+      "norcalli/nvim-colorizer.lua",
+      config = function()
+        require("plugin-config.colorizer")
+      end,
+    })
+    --mark
+    use({
+      "chentoast/marks.nvim",
+      config = function()
+        require("plugin-config.marks")
+      end,
+    })
     --------------------- LSP --------------------
     -- installer
     use({ "williamboman/mason.nvim" })
@@ -231,12 +299,13 @@ packer.startup({
     use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
     use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
     -- 常见编程语言代码段
-    use("rafamadriz/friendly-snippets")
+    use("rafamadriz/friendly-snippets") -- UI 增强 use("onsails/lspkind-nvim")
     -- UI 增强
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
     -- 代码格式化
     use("mhartington/formatter.nvim")
+
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
     -- TypeScript 增强
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
@@ -248,6 +317,14 @@ packer.startup({
     use("b0o/schemastore.nvim")
     -- Rust 增强
     use("simrat39/rust-tools.nvim")
+    -- use("habamax/vim-godot")
+    --godot
+    -- use({
+    --   "lommix/godot.nvim",
+    --   config = function()
+    --     require("plugin-config.godot")
+    --   end,
+    -- })
     --------------------- colorschemes --------------------
     -- tokyonight
     use({
@@ -256,6 +333,26 @@ packer.startup({
         require("plugin-config.tokyonight")
       end,
     })
+    use({
+      "xiyaowong/nvim-transparent",
+      config = function()
+        require("plugin-config.transparent")
+      end,
+    })
+    use({
+      "mvllow/modes.nvim",
+      tag = "v0.2.0",
+      config = function()
+        require("plugin-config.modes")
+      end,
+    })
+    -- use({
+
+    --   "svrana/neosolarized.nvim",
+    --   config = function()
+    --     require("plugin-config.neosolarized")
+    --   end,
+    -- })
 
     -- OceanicNext
     -- use({ "mhartington/oceanic-next", event = "VimEnter" })

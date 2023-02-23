@@ -105,7 +105,7 @@ local list_keys = { -- 打开文件或文件夹
 }
 
 nvim_tree.setup({
-  open_on_setup = true,
+  open_on_setup = false,
   -- 完全禁止内置netrw
   disable_netrw = true,
   -- 不显示 git 状态图标
@@ -138,8 +138,8 @@ nvim_tree.setup({
       list = list_keys,
     },
     -- 不显示行数
-    number = false,
-    relativenumber = false,
+    number = true,
+    relativenumber = true,
     -- 显示图标
     signcolumn = "yes",
   },

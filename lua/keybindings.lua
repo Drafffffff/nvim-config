@@ -91,7 +91,7 @@ keymap("x", "p", '"_dP')
 if keys.s_windows ~= nil and keys.s_windows.enable then
   local skey = keys.s_windows
   -- 取消 s 默认功能
-  keymap("n", "s", "")
+  keymap("n", "s", " ")
   keymap("n", skey.split_vertically, ":vsp<CR>")
   keymap("n", skey.split_horizontally, ":sp<CR>")
   -- 关闭当前
@@ -330,4 +330,18 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
   map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 end
 
+map("n", "<leader>tp", ":Telescope projects<CR>", opt)
+
+map("i", "<A-h>", "<left>", opt)
+map("i", "<A-j>", "<down>", opt)
+map("i", "<A-k>", "<up>", opt)
+map("i", "<A-l>", "<right>", opt)
+map("i", "<A-d>", "<deleTE>", opt)
+
+map("n", "mp", ":MinimapToggle<CR>", opt)
+map("n", "<C-c>", "<cmd>PickColor<cr>", opt)
+map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opt)
+map("n", "aa", "$a", opt)
+map("n", "ms", ":wa<CR>:mksession!<CR>", opt)
+map("n", "ss", ":source Session.vim<CR>", opt)
 return pluginKeys

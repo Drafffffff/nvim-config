@@ -22,7 +22,7 @@ treesitter.setup({
   },
   -- 启用增量选择模块
   incremental_selection = {
-    enable = false,
+    enable = true,
     keymaps = {
       init_selection = "<CR>",
       node_incremental = "<CR>",
@@ -66,7 +66,7 @@ treesitter.setup({
       -- Set to false if you have an `updatetime` of ~100.
       clear_on_cursor_move = true,
     },
-    highlight_current_scope = { enable = true },
+    highlight_current_scope = { enable = false },
   },
   -- nvim-treesitter/nvim-treesitter-textobjects
   textobjects = {
@@ -91,7 +91,7 @@ treesitter.setup({
       },
     },
     swap = {
-      enable = false,
+      enable = true,
       swap_next = {
         ["<leader>a"] = "@parameter.inner",
       },

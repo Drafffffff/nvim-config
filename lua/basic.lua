@@ -9,6 +9,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 -- 高亮所在行
 vim.wo.cursorline = true
+vim.wo.cursorcolumn = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
@@ -46,7 +47,7 @@ vim.wo.wrap = false
 vim.o.whichwrap = "<,>,[,]"
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
--- 鼠标支持
+-- 鼠标支持Gj
 vim.o.mouse = "a"
 -- 禁止创建备份文件
 vim.o.backup = false
@@ -61,7 +62,7 @@ vim.o.timeoutlen = 500
 vim.o.splitbelow = true
 vim.o.splitright = true
 -- 自动补全不自动选中
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
+-- vim.g.completeopt = "menu,menuone,noselect,noinsert"
 -- 样式
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
@@ -82,3 +83,17 @@ vim.o.showmode = false
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
+--godot
+vim.g.godot_executable = "/Applications/Godot.app"
+--autosave
+-- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+--   callback = function()
+--     vim.fn.execute("silent! write")
+--     vim.notify("Autosaved!", vim.log.levels.INFO, {})
+--   end,
+-- })
+
+-- vim.g.transparent_enabled = true
+-- vim.g.tokyonight_transparent = vim.g.transparent_enabled
+-- vim.cmd.hi("CusorColumn guibg=#4f459b")
+-- vim.cmd.hi("CusorLine guibg=#4f459b")

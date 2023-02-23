@@ -6,6 +6,7 @@ local M = {
     leader_key = " ",
 
     -- : 模式
+    -- c_next_item = "<TAB>",
     c_next_item = "<C-j>",
     c_prev_item = "<C-k>",
 
@@ -14,7 +15,7 @@ local M = {
     n_save_quit = "<leader>wq", --:wq
     n_save_all = "<leader>wa", -- :wa
     -- n_save_all_quit = "<leader>qa", -- :wqa
-    n_force_quit = "<leader>q", -- :qa!
+    n_force_quit = "<leader>qq", -- :qa!
 
     n_v_5j = "<C-j>",
     n_v_5k = "<C-k>",
@@ -25,7 +26,7 @@ local M = {
     -- cmp 快捷键
     cmp_complete = "<A-.>",
     cmp_abort = "<A-,>",
-    cmp_confirm = "<CR>",
+    cmp_confirm = "<TAB>",
     cmp_scroll_doc_up = "<C-u>",
     cmp_scroll_doc_down = "<C-d>",
     cmp_select_prev_item = "<C-k>",
@@ -48,16 +49,16 @@ local M = {
       close_others = "so",
 
       -- 窗口跳转
-      jump_left = "<A-h>",
-      jump_right = "<A-l>",
-      jump_up = "<A-k>",
-      jump_down = "<A-j>",
+      -- jump_left = "<A-h>",
+      -- jump_right = "<A-l>",
+      -- jump_up = "<A-k>",
+      -- jump_down = "<A-j>",
 
       -- <leader> + hjkl 窗口之间跳转
-      -- jump_left = "<leader>h",
-      -- jump_right = "<leader>j",
-      -- jump_up = "<leader>k",
-      -- jump_down = "<leader>l",
+      jump_left = "<leader>h",
+      jump_right = "<leader>l",
+      jump_up = "<leader>k",
+      jump_down = "<leader>j",
 
       -- 窗口比例控制
       width_decrease = "s,",
@@ -78,7 +79,7 @@ local M = {
 
     fold = {
       open = "Z",
-      close = "zz",
+      close = "zd",
     },
 
     format = "<leader>f",
@@ -96,10 +97,10 @@ local M = {
 
     enable = true,
 
-    toggle = "<A-m>",
-    -- toggle = "<leader>m"
+    -- toggle = "<A-m>",
+    toggle = "<leader>m",
     edit = { "o", "<2-LeftMouse>" },
-    system_open = "<CR>",
+    system_open = "ss",
     -- v分屏打开文件
     vsplit = "sv",
     -- h分屏打开文件
@@ -156,7 +157,7 @@ local M = {
     move_selection_previous = "<C-k>",
     -- move_selection_next = "<C-n>",
     -- move_selection_previous = "<C-p>",
-    -- 历史记录
+    -- 历史记true录
     cycle_history_next = "<Down>",
     cycle_history_prev = "<Up>",
     -- 关闭窗口
@@ -182,13 +183,13 @@ local M = {
     enable = true,
     -- Normal 模式快捷键
     toggler = {
-      line = "gcc", -- 行注释
-      block = "gbc", -- 块注释
+      line = "<leader>/", -- 行注释
+      block = "<leader>bc", -- 块注释
     },
     -- Visual 模式
     opleader = {
-      line = "gc",
-      bock = "gb",
+      line = "<leader>/",
+      bock = "gbc",
     },
   },
 
@@ -229,7 +230,7 @@ local M = {
     goto_next = "gj",
     goto_prev = "gk",
     -- typescript
-    ts_organize = "gs",
+    ts_organize = "go",
     ts_rename_file = "gR",
     ts_add_missing_import = "gi",
     ts_remove_unused = "gu",
@@ -237,5 +238,17 @@ local M = {
     ts_goto_source = "gD",
   },
 }
+vim.api.nvim_create_autocmd({ "FocusLost" }, {
+  callback = function()
+    vim.fn.execute("silent! wa")
+    vim.notify("Autosaved!", vim.log.levels.INFO, {})
+  end,
+})
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    vim.fn.execute("silent! hi CursorLine guibg=#4f459b")
+    vim.fn.execute("silent! hi CursorColumn guibg=#4f459b")
+  end,
+})
 
 return M
